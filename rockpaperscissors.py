@@ -15,18 +15,31 @@ print("...rock...")
 print("...paper...")
 print("...scissors...")
 
-p1 = input("(Enter Player 1's choices): ").lower()
-# p2 = input("(Enter Player 2's choices): ").lower()
-computer = random.choice(["rock", "paper", "scissors"])
+player_wins = 0
+computer_wins = 0
+
+while player_wins < 2 and computer_wins < 2:
+    print(f"Player Score: {player_wins}")
+    print(f"Computer Score: {computer_wins}")
+
+    player = input("(Enter Player 1's choices): ").lower()
+    if player == 'quit()' or player == 'q':
+        break
+    # p2 = input("(Enter Player 2's choices): ").lower()
+    computer = random.choice(["rock", "paper", "scissors"])
 
 
-print(f"The computer plays: {p2}")
+    print(f"The computer plays: {computer}")
 
-#tie
-if p1 == computer:
-    print("It's a TIE!")
-elif (p1 == 'rock' and computer == 'scissors') or (p1 == 'paper' and computer == 'rock') or (p1 == 'scissors' and computer == 'paper'):
-    print("Player 1 WINS!")
-elif (computer == 'rock' and computer == 'scissors') or (computer == 'paper' and p1 == 'rock') or (computer == 'scissors' and p1 == 'paper'):
-    print("Computer WINS!")
+    #tie
+    if player == computer:
+        print("It's a TIE!")
+    elif (player == 'rock' and computer == 'scissors') or (player == 'paper' and computer == 'rock') or (player == 'scissors' and computer == 'paper'):
+        player_wins += 1
+        print("Player WINS!")
+    elif (computer == 'rock' and computer == 'scissors') or (computer == 'paper' and player == 'rock') or (computer == 'scissors' and player == 'paper'):
+        print("Computer WINS!")
+        computer_wins += 1
 
+    print(f'Final Scores... Player: ${player_wins}  Computer...{computer_wins}')
+  
